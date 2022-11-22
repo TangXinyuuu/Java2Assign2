@@ -332,6 +332,7 @@ public class Main extends Application {
         }
         String content = buffer.toString();
         Text wait_text = new Text(40, 60, content);
+        Text account = new Text("Account: " + client.idName + "\n");
 
 
 
@@ -340,16 +341,17 @@ public class Main extends Application {
 
         Button confirm = new Button("confirm");
 
-        grid.add(text, 3, 0, 2, 1);
-        grid.add(wait_text,0, 0);
+        grid.add(account,0, 0);
+        grid.add(wait_text,0, 1);
         grid.add(chooseHint, 3, 3);
-        grid.add(chooseField, 3, 3);
+        grid.add(chooseField, 4, 3);
+        grid.add(text, 3, 6, 2, 1);
 
 
         HBox panel = new HBox(40);
         panel.setAlignment(Pos.BOTTOM_RIGHT);
         panel.getChildren().add(confirm);
-        grid.add(panel, 1, 4);
+        grid.add(panel, 5, 5);
 
         stage.setScene(new Scene(grid, 600, 400));
         stage.setTitle("Wait");
