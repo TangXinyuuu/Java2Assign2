@@ -142,7 +142,9 @@ public class Main extends Application {
       stage.setTitle("Tic Tac Toe");
       stage.setResizable(false);
       stage.show();
-      client.toClose();
+      if (client != null) {
+        client.toClose();
+      }
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -202,7 +204,7 @@ public class Main extends Application {
             try {
               isWaiting(username);
             } catch (IOException e) {
-              throw new RuntimeException(e);
+              serverClosed();
             }
           } else if (reply == -1) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
